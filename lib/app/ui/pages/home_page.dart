@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_explorer/app/data/models/movie_model.dart';
 import 'package:the_movie_explorer/app/data/services/movie_service.dart';
+import 'package:the_movie_explorer/app/ui/pages/movie_details_page.dart';
 
 
 
@@ -38,7 +39,6 @@ class _HomePageState extends State<HomePage> {
           children: [
             Row(
               children: [
-                // Campo de busca
                 Expanded(
                   child: TextField(
                     controller: _searchController,
@@ -49,7 +49,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                // Botão de busca
                 ElevatedButton(
                   onPressed: _searchMovies,
                   child: const Icon(Icons.search),
@@ -57,7 +56,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(height: 16),
-            // Resultado da busca
             Expanded(
               child: _moviesFuture == null
                   ? const Center(child: Text('Busque por um filme!'))
@@ -92,6 +90,12 @@ class _HomePageState extends State<HomePage> {
                           title: Text(movie.title),
                           subtitle: Text('Data de lançamento: ${movie.releaseDate}'),
                           trailing: Text(movie.voteAverage.toString()),
+                          onTap: () async {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => MovieDetailsPage(movie: movie)),
+                            );
+                          },
                         );
                       },
                     );

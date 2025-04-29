@@ -20,6 +20,21 @@ class MovieApiService {
           .map((movieJson) => MovieModel.fromMap(movieJson))
           .toList();
 
+      movies.sort((a, b) {
+        if (a.releaseDate.isEmpty || b.releaseDate.isEmpty) {
+          return a.title.compareTo(b.title);
+        }
+
+        DateTime dateA = DateTime.parse(a.releaseDate);
+        DateTime dateB = DateTime.parse(b.releaseDate);
+
+        if (dateB.compareTo(dateA) != 0) {
+          return dateB.compareTo(dateA);
+        }
+
+        return a.title.compareTo(b.title);
+      });
+
       return movies;
     } else {
       throw Exception('Erro ao buscar filmes: ${response.statusCode}');

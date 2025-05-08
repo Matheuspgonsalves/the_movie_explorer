@@ -17,13 +17,20 @@ class MovieDetailsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (movie.posterPath != null)
+            if (movie.posterPath != null && movie.posterPath!.isNotEmpty)
               Center(
                 child: Image.network(
                   'https://image.tmdb.org/t/p/w500${movie.posterPath}',
                   height: 300,
                   fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(Icons.broken_image, size: 100);
+                  },
                 ),
+              )
+            else
+              const Center(
+                child: Icon(Icons.image_not_supported, size: 100),
               ),
             const SizedBox(height: 16),
             Text(

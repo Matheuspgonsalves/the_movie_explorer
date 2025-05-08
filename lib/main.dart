@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:the_movie_explorer/app/ui/pages/home_page.dart';
 
 void main() {
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Search Movies',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigoAccent),
-        useMaterial3: true,
+        primarySwatch: Colors.indigo,
+        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home: const HomePage(),
     );

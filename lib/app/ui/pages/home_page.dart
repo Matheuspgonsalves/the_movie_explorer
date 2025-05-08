@@ -80,13 +80,15 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (context, index) {
                         final movie = movies[index];
                         return ListTile(
-                          leading: movie.posterPath != null
-                              ? Image.network(
-                            'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                            width: 50,
-                            fit: BoxFit.cover,
-                          )
-                              : const SizedBox(width: 50),
+                            leading: movie.posterPath != null && movie.posterPath!.isNotEmpty
+                                ? Image.network(
+                              'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+                              width: 50,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return const Icon(Icons.broken_image);
+                              },
+                            ) : const Icon(Icons.image_not_supported),
                           title: Text(movie.title),
                           subtitle: Text('Data de lançamento: ${movie.releaseDate}'),
                           trailing: Text(movie.voteAverage.toString()),

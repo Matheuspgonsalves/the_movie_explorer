@@ -79,7 +79,13 @@ class _HomePageState extends State<HomePage> {
                       itemCount: movies.length,
                       itemBuilder: (context, index) {
                         final movie = movies[index];
-                        return ListTile(
+                        return Card(
+                          elevation: 3,
+                          margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ListTile(
                             leading: movie.posterPath != null && movie.posterPath!.isNotEmpty
                                 ? Image.network(
                               'https://image.tmdb.org/t/p/w500${movie.posterPath}',
@@ -88,16 +94,20 @@ class _HomePageState extends State<HomePage> {
                               errorBuilder: (context, error, stackTrace) {
                                 return const Icon(Icons.broken_image);
                               },
-                            ) : const Icon(Icons.image_not_supported),
-                          title: Text(movie.title),
-                          subtitle: Text('Data de lançamento: ${movie.releaseDate}'),
-                          trailing: Text(movie.voteAverage.toString()),
-                          onTap: () async {
-                            Navigator.push(
+                            )
+                                : const Icon(Icons.image_not_supported),
+                            title: Text(movie.title),
+                            subtitle: Text('Data de lançamento: ${movie.releaseDate}'),
+                            trailing: Text(movie.voteAverage.toString()),
+                            onTap: () {
+                              Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => MovieDetailsPage(movie: movie)),
-                            );
-                          },
+                                MaterialPageRoute(
+                                  builder: (context) => MovieDetailsPage(movie: movie),
+                                ),
+                              );
+                            },
+                          ),
                         );
                       },
                     );

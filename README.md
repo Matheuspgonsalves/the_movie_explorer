@@ -15,8 +15,8 @@ Descubra e explore filmes incríveis com o poder da API do The Movie Database (T
 
 ## 🖼️ Tela Inicial
 
-<img src="screenshots/home.png" width="250"/>
-<img src="screenshots/details.png" width="250"/>
+<img src="screenshots/home.jpeg" width="250"/>
+<img src="screenshots/details.jpeg" width="250"/>
 
 ## 🚀 Como usar
 

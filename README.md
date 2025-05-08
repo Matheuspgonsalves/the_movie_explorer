@@ -1,16 +1,34 @@
-# the_movie_explorer
+# 🎬 Movie Explorer
 
-A new Flutter project.
+Descubra e explore filmes incríveis com o poder da API do The Movie Database (TMDb).
 
-## Getting Started
+![Movie Explorer](https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=flutter&logoColor=white)
+![API](https://img.shields.io/badge/TMDb-API-green)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-This project is a starting point for a Flutter application.
+## ✨ Funcionalidades
 
-A few resources to get you started if this is your first Flutter project:
+- 🔍 Busca de filmes em tempo real
+- 📄 Tela de detalhes com ficha técnica
+- 🎨 Interface moderna e responsiva (Dark Mode)
+- 📱 Otimizado para dispositivos móveis
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🖼️ Tela Inicial
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="screenshots/home.png" width="250"/>
+<img src="screenshots/details.png" width="250"/>
+
+## 🚀 Como usar
+
+```bash
+# Clone o projeto
+git clone https://github.com/seu-usuario/the_movie_explorer.git
+
+# Acesse a pasta
+cd the_movie_explorer
+
+# Instale as dependências
+flutter pub get
+
+# Rode o projeto
+flutter run
